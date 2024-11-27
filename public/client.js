@@ -1,6 +1,7 @@
 class ChatClient {
     constructor() {
-        this.ws = new WebSocket(`ws://${window.location.host}`);
+        const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+        this.ws = new WebSocket(`${protocol}://${window.location.host}`);
         this.messageContainer = document.getElementById('messageContainer');
         this.messageInput = document.getElementById('messageInput');
         this.sendButton = document.getElementById('sendButton');
